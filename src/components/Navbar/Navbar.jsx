@@ -12,7 +12,7 @@ import {
   ListItemText,
   MenuItem,
 } from "@mui/material";
-import MobileDrawer from './MobileDrawer'
+import MobileDrawer from "./MobileDrawer";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 const StyledToolbar = styled(Toolbar)(({ theme }) => ({
@@ -21,12 +21,11 @@ const StyledToolbar = styled(Toolbar)(({ theme }) => ({
   elevation: 0,
 }));
 
-
 const StyledMenu = styled(Menu)`
-   & > :nth-of-type(3){
-       border-radius:10px;
-   }
-`
+  & > :nth-of-type(3) {
+    border-radius: 10px;
+  }
+`;
 
 const StyledMenuItem = styled(MenuItem)(({ theme }) => ({
   fontSize: "0.9rem",
@@ -36,7 +35,7 @@ const StyledMenuItem = styled(MenuItem)(({ theme }) => ({
 const StyledButton = styled(Button)(({ theme }) => ({
   textTransform: "capitalize",
   fontSize: "12px",
-  '&:hover': {
+  "&:hover": {
     color: theme.palette.secondary.main,
   },
 }));
@@ -66,8 +65,8 @@ export const Navbar = () => {
 
   return (
     <AppBar
+      position="static"
       sx={{ backgroundColor: "primary.main", boxShadow: 0 }}
-      position="fixed"
     >
       <StyledToolbar>
         <Stack direction="row" spacing={4}>
@@ -89,7 +88,7 @@ export const Navbar = () => {
                 endIcon={<KeyboardArrowUpIcon color="inherit" />}
                 variant="text"
                 color="neutral"
-               onClick={handleOpenFeatured}
+                onClick={handleOpenFeatured}
               >
                 Features
               </StyledButton>
@@ -98,9 +97,9 @@ export const Navbar = () => {
                 endIcon={<KeyboardArrowDownIcon color="inherit" />}
                 variant="text"
                 color="neutral"
-                disableRipple 
-                disableFocusRipple 
-                disableElevation 
+                disableRipple
+                disableFocusRipple
+                disableElevation
                 onClick={handleOpenFeatured}
               >
                 Features
@@ -134,7 +133,7 @@ export const Navbar = () => {
               About
             </StyledButton>
             <StyledMenu
-              id = "feature-menu" 
+              id="feature-menu"
               sx={{ display: { xs: "none", sm: "flex" } }}
               anchorEl={anchorElFeatured}
               open={openFeatured}
@@ -234,8 +233,7 @@ export const Navbar = () => {
             Register
           </StyledButton>
         </Stack>
-        <MobileDrawer/>
-
+        <MobileDrawer />
       </StyledToolbar>
     </AppBar>
   );
