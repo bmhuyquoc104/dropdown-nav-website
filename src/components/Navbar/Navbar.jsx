@@ -12,7 +12,7 @@ import {
   ListItemText,
   MenuItem,
 } from "@mui/material";
-
+import MobileDrawer from './MobileDrawer'
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 const StyledToolbar = styled(Toolbar)(({ theme }) => ({
@@ -234,6 +234,8 @@ export const Navbar = () => {
             Register
           </StyledButton>
         </Stack>
+        <MobileDrawer/>
+
       </StyledToolbar>
     </AppBar>
   );
