@@ -38,7 +38,7 @@ const StyledAccordion = styled(Accordion)(({ theme }) => ({
     color: theme.palette.secondary.main,
   },
   boxShadow: "revert",
-  "&:nth-child(2)": {},
+  "&:nth-of-type(2)": {},
 }));
 
 const StyledAccordionSummary = styled(AccordionSummary)`
@@ -53,9 +53,9 @@ const StyledAccordionSummary = styled(AccordionSummary)`
 const MobileDrawer = () => {
   const [isOpen, setOpen] = useState(false);
   const [isExpanded, setExpanded] = useState(false);
-  const handleChange = (isExpanded, string) => {
-    setExpanded(isExpanded ? string : false);
-  };
+  const [isExpandedCompany, setExpandedCompany] = useState(false);
+
+  
   return (
     <Stack sx={{ display: { xs: "flex", sm: "none" } }}>
       <IconButton onClick={() => setOpen(true)}>
@@ -75,14 +75,14 @@ const MobileDrawer = () => {
             <CloseIcon />
           </IconButton>
           <StyledAccordion
-            expanded={isExpanded === "panel"}
+            expanded={isExpanded}
             component="h2"
-            onChange={(_e, isCurrentlyExpanded) =>
-              handleChange(isCurrentlyExpanded, "panel")
+            onChange={
+              () => setExpanded(false)
             }
           >
-            <StyledAccordionSummary
-              expandIcon={<KeyboardArrowDownIcon sx={{ fontSize: "1.3rem" }} />}
+            <StyledAccordionSummary onClick = {() => setExpanded(!isExpanded)}
+              expandIcon={<KeyboardArrowDownIcon  sx={{ fontSize: "1.3rem" }} />}
             >
               Features
             </StyledAccordionSummary>
@@ -188,12 +188,11 @@ const MobileDrawer = () => {
             </AccordionDetails>
           </StyledAccordion>
           <StyledAccordion
-            expanded={isExpanded === "panel2"}
-            onChange={(_e, isCurrentlyExpanded) =>
-              handleChange(isCurrentlyExpanded, "panel2")
+            expanded={isExpandedCompany}
+            onChange={() => setExpandedCompany(false)
             }
           >
-            <StyledAccordionSummary
+            <StyledAccordionSummary onClick={() => setExpandedCompany(!isExpandedCompany)}
               expandIcon={<KeyboardArrowDownIcon sx={{ fontSize: "1.3rem" }} />}
             >
               Company
