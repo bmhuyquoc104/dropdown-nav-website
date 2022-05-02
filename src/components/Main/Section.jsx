@@ -15,45 +15,43 @@ const StyledStack = styled(Stack)`
   align-items: stretch;
   /* margin-top: auto;
   margin-bottom: auto; */
-  width: max(85%, 700px);
-  & > :first-of-type {
-    flex: 1;
-  }
-  & > :nth-of-type(2) {
-    flex: 1;
-  }
-`;
-const StyledStack2 = styled(Stack)`
-  & > :first-of-type {
-    flex: 1;
-  }
 `;
 
 const Section = () => {
   return (
     <StyledStack
       sx={{
-        marginTop: { xs: "0", sm: "10rem", md: "auto" },
-        marginBottom: { xs: "0", sm: "auto", md: "auto" },
-
+        marginTop: { xs: "0", sm: "5rem", md: "2rem", lg: "auto" },
+        marginBottom: { xs: "0", sm: "5rem", md: "auto", lg: "auto" },
       }}
       direction={{ xs: "column-reverse", sm: "row" }}
+      width={{ xs: "100%", sm: "80%", md: "80%" }}
     >
-      <StyledStack2 alignItems={{ xs: "center", sm: "center",md:"flex-start" }}>
+      <Stack
+        justifyContent={{
+          xs: "center",
+          sm: "space-between",
+          md: "space-around",
+        }}
+        alignItems={{ xs: "center", sm: "center", md: "center" }}
+
+      >
         <Stack
-          justifyContent={{ xs: "center", sm: "space-between",md:"space-around" }}
-          alignItems={{ xs: "center", sm: "flex-start",md:"flex-start" }}
-          width={{ sm: "80%", md: "100%" }}
+          justifyContent={{
+            xs: "center",
+            sm: "space-between",
+            md: "space-around",
+          }}
+          alignItems={{ xs: "center", sm: "flex-start", md: "flex-start" }}
+          width={{ xs: "90%", sm: "80%", md: "100%" }}
           p={{ sm: "0.75em", md: "0" }}
-          spacing={{ xs: "center", sm: 2,md:0 }}
-
-
+          spacing={{ xs: "center", sm: 2, md: 0 }}
         >
           <Typography
             sx={{
-              fontSize: "clamp(3.00rem, calc(0.46rem + 6.15vw), 6.00rem);",
+              fontSize: "clamp(2.00rem, calc(0.46rem + 6.15vw), 6.00rem);",
               color: "secondary.main",
-              width: { sm: "6ch" ,md:"11ch" },
+              width: { xs:"20ch", sm: "6ch", md: "11ch" },
               fontWeight: 700,
             }}
             component="h1"
@@ -64,7 +62,7 @@ const Section = () => {
             sx={{
               fontSize: "clamp(0.75rem, calc(0.43rem + 0.77vw), 1.13rem);",
               color: "neutral.main",
-              width: { sm: "40ch",md:"45ch" },
+              width: { xs:"30ch",sm: "35ch", md: "45ch" },
             }}
             variant="body2"
           >
@@ -82,9 +80,10 @@ const Section = () => {
 
         <Stack
           alignItems="center"
+          justifyContent="space-between"
           direction="row"
-          spacing = {{sm:1,md:4}}
-          p = {{sm:"0 1.5em", md:0}}
+          spacing={{ sm: 1, md: 4 }}
+          p={{ sm: "0 1.5em", md: 0 }}
         >
           <svg width="114" height="20" xmlns="http://www.w3.org/2000/svg">
             <path
@@ -112,23 +111,48 @@ const Section = () => {
             />
           </svg>
         </Stack>
-      </StyledStack2>
+      </Stack>
       {/* <picture>
         <source
-          srcset={imageResources.imageDesktop}
-          media="(max-width:660px)"
+          srcSet={imageResources.imageDesktop}
+          media="(min-width:660px)"
         ></source>
-        <img src={imageResources.imageMobile}></img>
-      </picture> */}
-      <Stack width={{ sm: "100%", md: "100%" }}>
         <img
           style={{
             width: "100%",
-            height:"100%",
+            height: "100%",
             aspectRatio: "1/1.1",
             objectFit: "contain",
           }}
+          src={imageResources.imageMobile}
+        ></img>
+      </picture> */}
+      <Stack
+        width={{ xs: "100%",sm: "100%", md: "100%" }}
+        height={{ xs: "100%", sm: "100%", md: "80%" }}
+        sx = {{display:{ xs: "none", sm: "flex" } }}
+      >
+        <img
+          style={{
+            width: "100%",
+            height: "100%",
+            objectFit: "contain",
+          }}
           src={imageResources.imageDesktop}
+        ></img>
+      </Stack>
+      <Stack
+        width={{ xs: "100%",sm: "100%", md: "100%" }}
+        height={{ xs: "100%", sm: "100%", md: "80%" }}
+        sx = {{display:{ xs: "flex", sm: "none" } }}
+      >
+        <img
+          style={{
+            width: "100%",
+            height: "100%",
+            objectFit: "contain",
+          }}
+          src={imageResources.imageMobile}
         ></img>
       </Stack>
     </StyledStack>
