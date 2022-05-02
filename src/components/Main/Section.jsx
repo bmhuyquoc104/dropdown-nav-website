@@ -5,8 +5,12 @@ import { Box, Stack, Typography, styled, Button } from "@mui/material";
 const StyledButton = styled(Button)(({ theme }) => ({
   textTransform: "capitalize",
   fontSize: "clamp(0.75rem, calc(0.43rem + 0.77vw), 1.13rem);",
+  padding:"0.5em 1.25em",
   "&:hover": {
     color: theme.palette.secondary.main,
+    fontWeight:700,
+    backgroundColor: theme.palette.primary.main,
+    borderColor: theme.palette.secondary.main,
   },
 }));
 
@@ -21,11 +25,13 @@ const Section = () => {
   return (
     <StyledStack
       sx={{
-        marginTop: { xs: "0", sm: "5rem", md: "2rem", lg: "auto" },
+        marginTop: { xs: "0", sm: "5rem", md: "auto", lg: "auto" },
         marginBottom: { xs: "0", sm: "5rem", md: "auto", lg: "auto" },
       }}
-      direction={{ xs: "column-reverse", sm: "row" }}
+      direction={{ xs: "column-reverse", sm: "column-reverse",md:"row" }}
       width={{ xs: "100%", sm: "80%", md: "80%" }}
+      spacing={{ xs: '2rem', sm: 0, md: 0 }}
+
     >
       <Stack
         justifyContent={{
@@ -33,7 +39,8 @@ const Section = () => {
           sm: "space-between",
           md: "space-around",
         }}
-        alignItems={{ xs: "center", sm: "center", md: "center" }}
+        alignItems={{ xs: "revert", sm: "center", md: "center" }}
+        spacing={{ xs: '2rem', sm: 0, md: 0 }}
 
       >
         <Stack
@@ -42,17 +49,18 @@ const Section = () => {
             sm: "space-between",
             md: "space-around",
           }}
-          alignItems={{ xs: "center", sm: "flex-start", md: "flex-start" }}
-          width={{ xs: "90%", sm: "80%", md: "100%" }}
+          alignItems={{ xs: "center", sm: "center", md: "flex-start" }}
+          width={{ xs: "100%", sm: "80%", md: "100%" }}
           p={{ sm: "0.75em", md: "0" }}
-          spacing={{ xs: "center", sm: 2, md: 0 }}
+          spacing={{ xs: "1rem", sm: "1rem", md: "1rem" }}
         >
           <Typography
             sx={{
-              fontSize: "clamp(2.00rem, calc(0.46rem + 6.15vw), 6.00rem);",
+              fontSize: "clamp(2.00rem, calc(0.46rem + 6.15vw), 5.00rem);",
               color: "secondary.main",
-              width: { xs:"20ch", sm: "6ch", md: "11ch" },
+              width: { xs:"20ch", sm: "20ch", md: "11ch" },
               fontWeight: 700,
+              textAlign: {xs:"center",sm:"center",md:"revert"}
             }}
             component="h1"
           >
@@ -60,9 +68,11 @@ const Section = () => {
           </Typography>
           <Typography
             sx={{
-              fontSize: "clamp(0.75rem, calc(0.43rem + 0.77vw), 1.13rem);",
+              fontSize: "clamp(1rem, calc(0.43rem + 0.77vw), 1.13rem);",
               color: "neutral.main",
-              width: { xs:"30ch",sm: "35ch", md: "45ch" },
+              width: { xs:"38ch",sm: "35ch", md: "45ch" },
+              textAlign: {xs:"center",sm:"center",md:"revert"}
+
             }}
             variant="body2"
           >
@@ -70,9 +80,9 @@ const Section = () => {
             processes, create team rituals, and watch productivity soar.
           </Typography>
           <StyledButton
-            sx={{ borderRadius: "15px", borderColor: "secondary.main" }}
+            sx={{ borderRadius: "10px", borderColor: "secondary.main",backgroundColor:"secondary.main" }}
             variant="outlined"
-            color="neutral"
+            color="primary"
           >
             Learn More
           </StyledButton>
@@ -129,8 +139,8 @@ const Section = () => {
       </picture> */}
       <Stack
         width={{ xs: "100%",sm: "100%", md: "100%" }}
-        height={{ xs: "100%", sm: "100%", md: "80%" }}
-        sx = {{display:{ xs: "none", sm: "flex" } }}
+        height={{ xs: "100%", sm: "70vh", md: "70vh" }}
+        sx = {{display:{ xs: "none", sm: "none",md:"flex" } }}
       >
         <img
           style={{
@@ -144,7 +154,7 @@ const Section = () => {
       <Stack
         width={{ xs: "100%",sm: "100%", md: "100%" }}
         height={{ xs: "100%", sm: "100%", md: "80%" }}
-        sx = {{display:{ xs: "flex", sm: "none" } }}
+        sx = {{display:{ xs: "flex", sm: "flex",md:"none" } }}
       >
         <img
           style={{

@@ -7,7 +7,7 @@ import { theme } from "./theme";
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <Stack width="100%"  alignItems = "center">
+      <Stack width="100%"  alignItems = "center"  height = "100vh">
         <Navbar />
         <Section/>
       </Stack>
